@@ -130,10 +130,10 @@
             <a class="nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="tech_specs.html">Technical specifications</a>
+            <a class="nav-link " href="techspec.html">Technical specifications</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="data_organization.html">Data organization</a>
+            <a class="nav-link " href="dataorg.html">Data organization</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="faq.html">FAQ</a>
@@ -168,12 +168,12 @@
     <p>This command line will take care of downloading all the archives whose link is in the file and of storing them in the correct directory (in order to respect paths encoded in the hdf5 files).
         Once all archives are downloaded they can just be uncompressed in place. This can be done by running the following command line at the root of the dataset:</p>
     <pre><code>find . -name "*.zip" | while read filename; do unzip -o -d $(dirname "$filename") "$filename"; done;</code></pre>
-    <p>In case of need, we provide detailed information about our dataset organization <a href="data_organization.html">here</a>.</p>
+    <p>In case of need, we provide detailed information about our dataset organization <a href="dataorg.html">here</a>.</p>
     <h3>Image Type</h3>
     <hr>
     <p>Choose the type of visual sensors for which you want to download the records. If you don't select any, you will download only the hdf5 files corresponding the the climate setups chosen at the next step.</p>
     <p>Please note that you explicitly need to select every stream you want (e.g. for semantic segmentation tasks, you need to select both the semantic segmentation maps and the left RGB captures).
-        Details on the correspondence between visual maps and RGB captures are given <a href="tech_specs.html#summary">here</a>. </p>
+        Details on the correspondence between visual maps and RGB captures are given <a href="techspe.html#summary">here</a>. </p>
     <style>
         .custom-grid{
             width: 11rem;
