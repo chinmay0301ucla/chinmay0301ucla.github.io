@@ -1,9 +1,0 @@
-span#emaildomain::after {
-    content: "r\40uliege.be";
-}
-span#emailname::before {
-    content: "midai";
-}
-span#cache {
-    display: none;
-}

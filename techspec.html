@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Mid-Air is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments. It contains synchronized data of multiple sensors for a total of 54 trajectories and more than 420k video frames simulated in various climate conditions.">
+    <meta name="author" content="Michaël Fonder and Marc Van Droogenbroeck">
+
+    <meta property="og:image" content="img/midair-thumbnail1.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://midair.ulg.ac.be" />
+    <meta property="og:title" content="Mid-Air Dataset" />
+    <meta property="og:description" content="Mid-Air is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments. It contains synchronized data of multiple sensors for a total of 54 trajectories and more than 420k video frames simulated in various climate conditions." />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="midair.ulg.ac.be">
+    <meta name="twitter:title" content="Mid-Air Dataset">
+    <meta name="twitter:description" content="Mid-Air is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments.">
+    <meta name="twitter:creator" content="Michaël Fonder and Marc Vandroogenbroeck">
+    <meta name="twitter:image" content="img/midair-thumbnail1.jpg">
+
+    <!-- Balisage JSON-LD généré par l'outil d'aide au balisage de données structurées de Google -->
+    <script type="application/ld+json">
+      { "@context" : "http://schema.org",
+        "@type" : "Dataset",
+        "name" : "Mid-Air",
+        "description" : "Mid-Air is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments. It contains synchronized data of multiple sensors for a total of 54 trajectories and more than 420k video frames simulated in various climate conditions.",
+        "version" : "1.0",
+        "identifier" : "http://hdl.handle.net/2268/234665",
+        "citation" : "Michael Fonder and Marc Van Droogenbroeck, \"Mid-Air: A multi-modal dataset for extremely low altitude drone flights\", Conference on Computer Vision and Pattern Recognition Workshop (CVPRW), 2019",
+        "keywords" : "Computer vision, deep learning, big data, drones, uav, autonomous vehicules, vision, depth, stereo, semantic, visual odometry",
+        "license" : "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License",
+        "distribution" : { "@type" : "DataDownload", "contentUrl" : "https://midair.ulg.ac.be/download.html" }
+      }
+    </script>
+
+
+    <link rel="icon" href="img/logo.ico">
+
+    <title>Mid-Air Dataset</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140855913-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-140855913-1');
+    </script>
+
+
+    <!-- Bootstrap core CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Holder.js for placeholder images -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+    <!-- Custom styles for this template -->
+
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+
+        .starter-template {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        ul.nav li hyperlink_footer, ul.nav li hyperlink_footer:visited {
+          color: #fff !important;
+        }
+
+        ul.nav li hyperlink_footer:hover, ul.nav li hyperlink_footer:active {
+          color: #fff !important;
+        }
+
+        ul.nav li.active hyperlink_footer {
+          color: #fff !important;
+        }
+        .col_button {
+          -ms-flex: 0 0 100px;
+          flex: 0 0 100px;
+        }
+
+        @keyframes rotation {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(359deg);
+          }
+        }
+
+    </style>
+  </head>
+
+  <body style="background: rgba(52,58,64,0.05);">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container ">
+          <img src="img/profile.svg" width="30" height="30" class="d-inline-block align-top" alt="" style="margin-right: 5px">
+      <a class="navbar-brand" href="index.html">Mid-Air Dataset</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="tech_specs.html">Technical specifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="data_organization.html">Data organization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="download.html">Download</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+
+        <!-- body -->
+    <div class="container" style="margin-top:5px;">
+      <h2>Technical specifications</h2>
+      <hr>
+      <p>
+        Hereafter, we provide all details about sensors present in our dataset. This includes their type, their capture rate, their unit, their
+         reference frame and the sensor positions. Details on how they are stored in the dataset are given on the
+        <a href="data_organization.html">Data organization</a> page.
+      </p>
+      <p>
+        This page is organized as follow:
+        <ul>
+          <li><a href="#sensors">Sensors positioning and Frames of reference definition</a></li>
+          <li><a href="#positioning">Positioning data</a></li>
+          <li><a href="#visual">Visual data</a></li>
+          <li><a href="#segmentation">Semantic segmentation classes</a></li>
+          <li><a href="#summary">Summary table</a></li>
+    </ul>
+      </p>
+      <a  name="sensors"></a>
+      <h3>Sensors positioning and Frames of reference definition</h3>
+      <hr>
+      <div class="row justify-content-md-center">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+          <center>
+            <img class="d-block w-100" src="img/drone_sensors.png" alt="Winter, sunset">
+            Figure 1: Sensors position
+          </center>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+          <center>
+            <img class="d-block w-100" src="img/frame_illustration.png" alt="Winter, sunset">
+            Figure 2: Frames of reference definition
+          </center>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <br>
+      <p>
+        Figure 1 shows the sensor locations on the drone used to generate our dataset. Cameras are represented by the
+        pyramids. The blue cube shows the IMU and the GPS receiver locations.
+      </p>
+      <p>
+        Figure 2 illustrates the frames of reference used for all position-related data. The World frame is defined at the
+        starting point of the trajectory and oriented such that the drone yaw is equal to zero. Other axis are horizontal.
+        The Body frame is rigidly attached to the drone with its origin corresponding to the position of the IMU and GPS receiver.
+        All frames use the North, East, Down (NED) axes convention.
+      </p>
+
+      <a  name="positioning"></a>
+      <h3>Positioning data</h3>
+      <hr>
+      <p>
+        For all position-related data, we use the North, East, Down (NED) axes convention. Distances are expressed in meters, rotations in
+        quaternions, angles in radians, and time in seconds. The positioning information stored in the dataset is as
+        follows:
+        <ul>
+          <li>Ground truths for the position, speed, acceleration, and attitude are expressed in the World
+            frame;</li>
+      <li>Angular velocity ground truths and IMU data, <i>i.e.</i> acceleration and angular velocity are expressed in the Body frame;</li>
+          <li>GPS position and speed are given in meters in the
+            World frame.</li>
+        </ul>
+      </p>
+      <p>
+        It is important to note that the GPS position is not given
+        by the standard longitude, latitude and altitude information,
+        but by a simple position in meters expressed in the World
+        frame. This position in meters is obtained by projecting
+        the position given with the longitude/latitude/altitude format relatively to the first point of the trajectory.
+      </p>
+      <p>
+        Additionally, our dataset stores some information about
+        the state of the sensors. The following sensors data are
+        made available:
+        <ul>
+          <li>An estimate of the initial bias for the accelerometer and the gyroscope;</li>
+          <li>The GPS signal quality estimates (i.e. GDOP, PDOP, HDOP, VDOP) for each measurement;</li>
+          <li>The number of satellites visible by the GPS receiver for each of its measurements.</li>
+        </ul>
+      </p>
+      <a  name="visual"></a>
+      <h3>Visual data</h3>
+      <hr>
+      <p>
+        Each trajectory record comes with eight video streams corresponding to the (1) left, (2) right and (3) down-looking RGB camera views and the (4)
+        segmentation, (5) depth, (6) normals, (7) disparity and (8) occlusion maps seen by the left camera. All visual sensors have a field of view of 90 degrees. Each video stream
+        consists in a set of successively numbered pictures stored in a dedicated directory. The image formats and content are
+        the following:
+        <ul>
+          <li>RGB pictures are stored in JPEG images.</li>
+          <li>Occlusion masks are stored as lossless 1-channel PNGs.</li>
+          <li>Surfaces normals are stored as RGB lossless PNG files.
+            Normal vectors are tri-dimensional and are expressed with respect to the Body frame. Red color corresponds to the Y-axis, blue to the X-axis, and green
+            to the Z-axis (but with reverse direction). All vectors
+            were normalized to have a unit norm. In order to fit
+            in an RGB picture, the range of possible element values, <i>i.e.</i> [−1; 1], was scaled and shifted to fit a range of
+            [0; 1]. For example, with this convention, a perfectly
+            flat and horizontal surface will have an RGB color corresponding to (0:5; 1; 0:5) if the drone does not have
+            any pitch nor roll angle.</li>
+          <li>Depth and stereo disparity maps are expressed in meters and in pixels respectively and are stored as 16-bit
+            float matrices in lossless 1-channel PNGs. One of the
+            provided example scripts shows how to decode them.</li>
+          <li>Semantic segmentation maps are stored as lossless 1-
+            channel 8-bit unsigned int PNGs. The value of a pixel
+            indicates a label number. Correspondences between
+            label numbers and classes are given below.</li>
+        </ul>
+      </p>
+
+
+      <a name="segmentation"></a>
+      <h3>Semantic segmentation classes</h3>
+      <hr>
+      <div class="row justify-content-center">
+        <div class="col-lg-4">
+          <table class="table table-striped">
+            <thead>
+              <th scope="col">Id</th>
+              <th scope="col">Class content</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th><td>Animals</td>
+              </tr>
+              <tr>
+                <th>2</th><td>Trees</td>
+              </tr>
+              <tr>
+                <th>3</th><td>Dirt ground</td>
+              </tr>
+              <tr>
+                <th>4</th><td>Ground vegetation</td>
+              </tr>
+              <tr>
+                <th>5</th><td>Rocky ground</td>
+              </tr>
+              <tr>
+                <th>6</th><td>Boulders</td>
+              </tr>
+              <tr>
+                <th>7</th><td>[<i>empty</i>]</td>
+              </tr>
+              <tr>
+                <th>8</th><td>Water plane</td>
+              </tr>
+              <tr>
+                <th>9</th><td>Man-made construction</td>
+              </tr>
+              <tr>
+                <th>10</th><td>Road</td>
+              </tr>
+              <tr>
+                <th>11</th><td>Train track</td>
+              </tr>
+              <tr>
+                <th>12</th><td>Road sign</td>
+              </tr>
+              <tr>
+                <th>13</th><td>Other man-made objects</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <a  name="summary"></a>
+      <h3>Sensors summary table</h3>
+      <hr>
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <table class="table table-striped">
+            <thead>
+            <th scope="col">Data</th>
+            <th scope="col">Sampling freq.</th>
+            <th scope="col">Ref. frame</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Misc.</th>
+            </thead>
+            <tbody>
+              <tr><td>Ground-truth position</td><td>100Hz</td><td>World</td><td>[m]</td><td></td></tr>
+              <tr><td>Ground-truth velocity</td><td>100Hz</td><td>World</td><td>[m/s]</td><td></td></tr>
+              <tr><td>Ground-truth acceleration</td><td>100Hz</td><td>World</td><td>[m/s²]</td><td></td></tr>
+              <tr><td>Ground-truth attitude</td><td>100Hz</td><td>World</td><td>[quaternion]</td><td></td></tr>
+              <tr><td>Ground-truth angular velocity</td><td>100Hz</td><td>Body</td><td>[rad/s]</td><td></td></tr>
+              <tr><td>IMU acceleration</td><td>100Hz</td><td>Body</td><td>[m/s²]</td><td>Initial bias estimate provided</td></tr>
+              <tr><td>IMU angular velocity</td><td>100Hz</td><td>Body</td><td>[rad/s]</td><td>Initial bias estimate provided</td></tr>
+              <tr><td>GPS position</td><td>1Hz</td><td>World</td><td>[m]</td><td></td></tr>
+              <tr><td>GPS velocity</td><td>1Hz</td><td>World</td><td>[m/s]</td><td></td></tr>
+              <tr><td>GPS signal information</td><td>1Hz</td><td>n/a</td><td>n/a</td><td>Includes number of visible satellites, GDOP, PDOP, HDOP and VDOP</td></tr>
+              <tr><td>Downward-looking RGB picture</td><td>25Hz</td><td>n/a</td><td>n/a</td><td>90° fov, Captured by downward-looking camera</td></tr>
+              <tr><td>Right stereo RGB picture</td><td>25Hz</td><td>n/a</td><td>n/a</td><td>90° fov, Captured by right camera</td></tr>
+              <tr><td>Left stereo RGB picture</td><td>25Hz</td><td>n/a</td><td>n/a</td><td>90° fov, Captured by left camera</td></tr>
+              <tr><td>Stereo disparity map</td><td>25Hz</td><td>n/a</td><td>[pixel]</td><td>90° fov, Captured by left camera</td></tr>
+              <tr><td>Stereo occlusion map</td><td>25Hz</td><td>n/a</td><td>n/a</td><td>90° fov, Captured by left camera</td></tr>
+              <tr><td>Depth map</td><td>25Hz</td><td>n/a</td><td>[m]</td><td>90° fov, Captured by left camera</td></tr>
+              <tr><td>Surfaces normal map</td><td>25Hz</td><td>Body</td><td>n/a</td><td>90° fov, Captured by left camera</td></tr>
+              <tr><td>Semantic segmentation map</td><td>25Hz</td><td>n/a</td><td>n/a</td><td>90° fov, Captured by left camera</td></tr>
+              <tr><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- end body -->
+
+
+    <footer class="page-footer font-small bg-dark text-muted" style="margin-top:25px;">
+
+      <div class="container justify-content-center ">
+
+        <!-- Grid row -->
+        <div class="row" ></div>
+
+        <!--<div class="row justify-content-center  text-md-left" style="margin-top:25px;"><h5 class="text-uppercase font-weight-bold">Related links</h5></div>-->
+        <div class="row justify-content-md-center" style="margin-top:25px;">
+
+
+        <!-- Grid column -->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider hyperlink_footer" >-->
+            <!--<a class="text-muted" href="http://www.montefiore.uliege.be/~mfonder">Michaël Fonder</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider" >-->
+            <!--<a class="text-muted" href="https://www.uliege.be">ULiège</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider" >-->
+            <!--<a class="text-muted" href="http://www.montefiore.uliege.be/">Montefiore Institute</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider" >-->
+            <!--<a class="text-muted" href="http://www.telecom.ulg.ac.be/index.html">TELIM Laboratory</a>-->
+          <!--</div>-->
+          <div class="col-md-3 text-center" >
+            <h5>Related links</h5><br>
+            <p><a class="text-muted" href="https://be.linkedin.com/in/m-fonder">Michaël Fonder</a></p>
+            <p><a class="text-muted" href="http://www.montefiore.uliege.be/">Montefiore Institute</a></p>
+            <p><a class="text-muted" href="https://www.uliege.be">ULiège</a></p>
+          </div>
+          <div class="col-md-1" ></div>
+          <div class="col-md-4" >
+            <h5 class="text-center">Acknowledgements</h5><br>
+            <p class="text-justify">
+              We would like to thank Nvidia for supporting our research with the donation of a Titan Xp GPU through the NVIDIA GPU Grant Program.
+            </p>
+          </div>
+          <div class="col-md-1" ></div>
+          <div class="col-md-3" >
+            <h5>Contact</h5><br>
+            <p><span id="emaildomain"><i class="fa fa-envelope"></i> <span id="emailname"><span id="cache">m.inutile@bloque.be</span></span></span><br>
+              <i class="fa fa-map-marker"></i> Institut Montefiore, B28<br>
+              &emsp;Allée de la découverte 10,<br>
+              &emsp;4000 Liège<br>
+            </p>
+          </div>
+
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+      </div>
+      <div class="footer-copyright text-center py-3 nav-link">© 2019 Copyright: Mid-Air. All Rights Reserved
+      </div>
+
+    </footer>
+    <!-- Footer -->
+
+
+  </body>
+</html>
