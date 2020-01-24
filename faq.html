@@ -149,23 +149,23 @@
     <div class="container"  style="margin-top:5px;">
     <h2>FAQ</h2>
     <hr>
-    <p>
-        During the review of our paper, or even during the development phase of the dataset, we received some questions
-        which could not be answered in the paper due the lack of space. We however felt that we should answer them.
-        This is what we do here.
-    </p>
+    <!-- <p>
+        
+    </p> -->
 
-    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why doesn't the dataset feature {insert what you want here}? It's a pity because it limits potential applications.</h6>
+
+
+    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> What is the vision for the dataset?
+</h6>
     <hr>
     <!--<p>-->
         <!--<b><i class="fa fa-angle-right" aria-hidden="false"></i></b> First of all, we want to point out that, it's not because your desired feature is not in the dataset now that it-->
         <!--will never be added to it later on.-->
     <!--</p>-->
     <p>
-        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> Developing such a dataset is time consuming and possibilities are endless. Therefore, we  had to make choices on the features to prioritize.
-        We did that based on a series of constraints which are ours and may unfortunately be different from yours.
-    </p>
-    <p>
+        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> We see this dataset as a first attempt to galvanize research effort towards the fledgling domain of AI and physics for vision. We hope that the dataset provides a direction for the development of algorithms towards the larger goal of discovering unknown physics from videos.
+
+    <!-- <p>
         In a general manner, we tried to be complimentary to already existing datasets in terms of proposed features. We believe that performances of good robust
         algorithms for tasks such as ego-motion or depth estimation should be similar on different datasets. We therefore think that
         learning simultaneously on different datasets to increase the diversity of the training content should be considered
@@ -179,7 +179,7 @@
     <p>
         Finally, we want to emphasize that we will maintain and maybe continue to develop our dataset. So, a feature that is missing now may be be added to it later on.
     </p>
-
+ -->
     <br>
 
     <!--<h6><i class="fa fa-caret-right" aria-hidden="false"></i> Your dataset covers natural landscapes with only very few man made objects... Why didn't you include records for urban or industrial environments?</h6>-->
@@ -189,42 +189,38 @@
     <!--</p>-->
     <!--<br>-->
 
-    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why didn't you simulate camera imperfections (lens distortion, chromatic aberrations, under/overexposure, ...)?</h6>
+    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why are all the tasks in the dataset elementary?
+</h6>
     <hr>
     <p>
-        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> Most of these imperfections can easily be simulated in postprocessing on existing images. Since there are so much different camera
-        models with different imperfections, we didn't want to restrict everybody to just one imperfection model. Rather than that,
-        we prefer to leave everyone free of implementing the imperfection model which suits its use case.
+        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> For our first attempt, we limit the physics tasks to simple, motion dependent tasks. These tasks are well known yet fundamental, with well-defined, closed form physics equations. They are therefore ideal for setting up initial approaches towards the greater effort of physics discovery.
     </p>
     <br>
 
-    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why didn't you generate severe weather conditions (rain, snow, heavy wind, ...)?</h6>
+    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> How robust is the dataset to scale changes/camera motion effects between videos?
+</h6>
     <hr>
     <p>
-        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> There are two main reasons for this. The first one
-        is that drones are not supposed to be flying in such severe weathers. This therefore strongly lessen the need for the presence of such additions in the dataset.
-        And from a technical point of view, it appeared that, with our current render pipeline, it is difficult to guarantee
-        that rain- and snowfalls will be consistent between two consecutive frames.
+        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> Active efforts have been taken to ensure that the camera moves minimally between all the videos for a particular task. While small motions do invariably creep in, these motions are limited such that the scale of the object of interest does not change.
     </p>
     <br>
 
-    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why is motion blur mentioned as a rendering limitation, although Unreal engine 4 supports generating motion blur?</h6>
+    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> What kind of variations are included in the data?
+</h6>
     <hr>
     <p>
-        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> Unreal Engine 4 (UE4) indeed supports motion blur, but not for
-        all renderings. We use the Airsim simulator as an API to UE4. Airsim uses RenderTargets to simulate the different onboard
-        cameras. Unfortunately, it appears that the motion blur feature is not supported by RenderTargets.
+        <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> The data is collected so that the governing parameters for the relevant tasks (initial velocities for the ball toss, spring constant and mass for the spring dataset and so on) are well spread, in order to ensure that the dataset is overall more representative.
     </p>
     <br>
 
-    <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why didn't you include optical flow? It's so trivial to get it in CG...</h6>
+    <!-- <h6><i class="fa fa-caret-right" aria-hidden="false"></i> Why didn't you include optical flow? It's so trivial to get it in CG...</h6>
     <hr>
     <p>
         <b><i class="fa fa-angle-right" aria-hidden="false"></i></b> We agree that, in some softwares (such as Blender for example),
         it is trivial to get optical flow. However, as for motion blur, optical flow is not available for Unreal Engine 4
         RenderTargets (which are the simulated cameras).
     </p>
-    <br>
+    <br> -->
 
     <!--<h6></h6>-->
     <!--<hr>-->
