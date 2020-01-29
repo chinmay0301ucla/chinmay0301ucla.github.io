@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Visual Physics is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments. It contains synchronized data of multiple sensors for a total of 54 trajectories and more than 420k video frames simulated in various climate conditions.">
+    <meta name="author" content="Michaël Fonder and Marc Van Droogenbroeck">
+
+    <meta property="og:image" content="gravity.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://midair.ulg.ac.be" />
+    <meta property="og:title" content="Visual Physics Dataset" />
+    <meta property="og:description" content="Visual Physics is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments. It contains synchronized data of multiple sensors for a total of 54 trajectories and more than 420k video frames simulated in various climate conditions." />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="midair.ulg.ac.be">
+    <meta name="twitter:title" content="Visual Physics Dataset">
+    <meta name="twitter:description" content="Visual Physics is a multi-modal synthetic dataset for low altitude drone flights in unstructured environments.">
+    <meta name="twitter:creator" content="Michaël Fonder and Marc Vandroogenbroeck">
+    <meta name="twitter:image" content="img/midair-thumbnail1.jpg">
+
+    <!-- Balisage JSON-LD généré par l'outil d'aide au balisage de données structurées de Google -->
+    <script type="application/ld+json">
+      { "@context" : "http://schema.org",
+        "@type" : "Dataset",
+        "name" : "Visual Physics",
+        "description" : "Visual Physics Dataset is a dataset of real videos depicting a variety of physics tasks. The goal of this dataset is to motivate research towards coming up with next generation AI algorithms that can discern the underlying physics of the videos in a human interpretable form.",
+        "version" : "1.0",
+        "identifier" : "http://hdl.handle.net/2268/234665",
+        "citation" : "Michael Fonder and Marc Van Droogenbroeck, \"Visual Physics: A multi-modal dataset for extremely low altitude drone flights\", Conference on Computer Vision and Pattern Recognition Workshop (CVPRW), 2019",
+        "keywords" : "Computer vision, deep learning, big data, drones, uav, autonomous vehicules, vision, depth, stereo, semantic, visual odometry",
+        "license" : "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License",
+        "distribution" : { "@type" : "DataDownload", "contentUrl" : "https://midair.ulg.ac.be/download.html" }
+      }
+    </script>
+
+
+    <!-- <link rel="icon" href="img/logo.ico"> -->
+
+    <title>Visual Physics Dataset</title>
+<!--     <div>
+      <img src="gravity.png" width=600px height=400px>
+    </div> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140855913-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-140855913-1');
+    </script>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Holder.js for placeholder images -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+    <!-- Custom styles for this template -->
+
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+
+        .starter-template {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        ul.nav li hyperlink_footer, ul.nav li hyperlink_footer:visited {
+          color: #fff !important;
+        }
+
+        ul.nav li hyperlink_footer:hover, ul.nav li hyperlink_footer:active {
+          color: #fff !important;
+        }
+
+        ul.nav li.active hyperlink_footer {
+          color: #fff !important;
+        }
+        .col_button {
+          -ms-flex: 0 0 100px;
+          flex: 0 0 100px;
+        }
+
+        @keyframes rotation {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(359deg);
+          }
+        }
+
+    </style>
+  </head>
+
+  <body style="background: rgba(52,58,64,0.05);">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container ">
+          <img src="img/profile.svg" width="30" height="30" class="d-inline-block align-top" alt="" style="margin-right: 5px">
+      <a class="navbar-brand" href="index.html">Visual Physics Dataset</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="techspec.html">Technical specifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="dataorg.html">Data organization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="download.html">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="leaderboard.html">Leaderboard</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+
+    <div class="header" style="padding-top:-25px; margin-top:-25px; background-image: url('gravity.png');background-size: cover;background-position: center 0%; ">
+  <div class="row justify-content-end">
+
+    <div class="col-md-auto text-center"  style="background: rgba(52,58,64,0.8);">
+      <div style="margin-top:25px;margin-bottom:25px;margin-right:25px;margin-left:25px;">
+      <img class="mx-auto d-block" src="img/profile.svg" alt="" style="max-width: 200px;">
+      <h1 class="display-4 text-light", >Visual Physics</h1>
+      <h1 class="display-4 text-light">Dataset</h1>
+      </div>
+    </div>
+
+    <div class="col-lg-2"  style="background: rgba(52,58,64,0.8);"></div>
+  </div>
+
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <!-- <h2 class="text-center">Visual Physics<br></h2> -->
+    </div>
+  </div>
+  <div class="row justify-content-center" style="margin-top:28px;">
+    <div class="col-lg-7 text-justify">
+      <p>
+        The <b>Visual Physics</b> dataset is a repository of real-world videos, capturing simple yet fundamental physics phenomena in practical and experimental scenarios. Through this dataset, we look to motivate research towards the discovery of (eventually unknown) physics phenomena from videos.</p>
+      <p>
+        This dataset is a part of the larger effort to serve as a testbed for machines to learn natural laws from data, as opposed to standard prediction tasks. Our motivation stems from the famous story of the apple falling on newton's head that led him to discover gravity. Coming up with algorithms capable of inferring and using latent system dynamics of a system through visual data would be a crucial step in the quest to achieve general intelligence, and this dataset aims to be a stepping stone towards that. 
+      </p>
+
+      <p>
+        Our dataset consists of fundamental high school physics tasks, which are governed by closed form equations. We hope that this dataset would inspire the development of algorithms capable of discovering these fundamental laws of physics with minimal knowledge and intervention. To motivate this goal, we are hosting a challenge to evaluate the performance of the algorithms on this dataset. You can have a look at the submission details and evaluation metrics on the <a href="leaderboard.html">leaderboard</a>.
+        </p> 
+      <!-- <p>
+        Additionally, each flight trajectory was recorded several times in the same place but in different climate conditions in order to change the visuals of the scene.
+         This offers the opportunity to train algorithms for robustness to visual changes. A test set for benchmarking this particular criteria is
+         proposed alongside the training data.</p> -->
+    </div>
+    <div class="col-lg-5">
+      <img src="gravity.png" width = 300px height = 350px style ="margin-left: 100px;">
+    </div>
+  </div>
+  <div class="row justify-content-center" style="margin-top:28px;margin-bottom: 28px;">
+    <div class="col-lg-5">
+      <h2 class="text-center">Dataset Features</h2>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="embed-responsive embed-responsive-16by9 " style="margin-top:5px; margin-bottom: 50px">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/X-6hWtOjMHo?modestbranding=1&autohide=1&mute=1&showinfo=0&controls=1&autoplay=1&loop=1&playlist=X-6hWtOjMHo&ref=0&enablejsapi=1" allow="autoplay" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+   
+
+  
+
+<br><br>
+  <div class="row justify-content-center" >
+    <div class="col-lg-auto my-auto" style="background-image: linear-gradient(rgba(0,58,64,0.35), rgba(0,58,64,0.35)), url('img/screen-1.jpg');background-size: cover;background-position: center center;">
+      <br>
+      <span class="text-light text-center"><h2 class="display-4">5</h2><h3 class="display-6">Tasks</h3></span>
+      <hr style="border-top: 2px solid white;">
+      <span class="text-light text-center"><h2 class="display-4">600</h2><h3 class="display-6">Videos Per Task</h3></span>
+      <br>
+    </div>
+    <div class="col-lg-6 text-justify">
+      <hr>
+      <h2>Covers Fundamental N tasks</h2>
+      <p>
+      The dataset consists of real videos of N position dependent physics phenomena. More information on the dataset specifications can be found on the <a href="techspec.html">Technical specifications page</a>.
+    </p>
+    </div> 
+  <!-- <div class="row justify-content-center" >
+     <div class="col-lg-auto my-auto" style="background-image: linear-gradient(rgba(52,58,64,0.35), rgba(52,58,64,0.35)), url('img/screen-2.jpg');background-size: cover;background-position: center center;">
+      <br>
+      <span class="text-light text-center"><h2 class="display-4">5</h2><h3 class="display-6">Tasks</h3></span>
+      <hr style="border-top: 2px solid white;">
+      <span class="text-light text-center"><h2 class="display-4">600</h2><h3 class="display-6">Videos Per Task</h3></span>
+    </div>
+    <div class="col-lg-6 text-justify">
+      <hr>
+      <h2>Covers N fundamental physics tasks</h2>
+      <p>
+        Our dataset contains 79 minutes of drone flight records extracted out of more than 5 hours of flight records.
+        Records were captured by manually flying the drone in a virtual environment thanks to an RC controller connected to the computer.
+        The 79 minutes of flight are divided into 54 individual trajectories of equal length.
+      </p>
+      <p>
+        Since each  trajectory  is  rendered  several  times for different climate scenarios, Visual Physics offers more
+        than 420,000 individual training frames.
+      </p>
+    </div>
+  </div> -->
+
+<!--   <div class="row  equal justify-content-lg-end  flex-column-reverse flex-lg-row h-100">
+ -->   
+    <div class="row justify-content-center" style="margin-top: 25px">
+    <div class="col-lg-auto my-auto" style="background-image: linear-gradient(rgba(52,58,64,0.35), rgba(52,58,64,0.35)), url('img/screen-1.jpg');background-size: cover;background-position: center center;">
+      <br>
+      <span class="text-light text-center"><h2 class="display-4">3</h2><h3 class="display-6">cameras</h3></span>
+      <hr style="border-top: 2px solid white;">
+      <span class="text-light text-center"><h2 class="display-4">IMU</h2><h3 class="display-6">Videos Per Task</h3></span>
+      <br>
+    </div>
+    <div class="col-lg-6 text-justify" >
+      <hr>
+      <h2>The Discovering Physics Challenge</h2>
+      <p>
+      We invite implementations that look to discover physics equations from one or more of the included tasks. Look at the <a href="Leaderboard.html"> page </a> for more information on the evaluation metrics. 
+      </p>
+      </div>
+
+    </div>
+
+<!--     <div class="row justify-content-center" >
+    <div class="col-lg-auto my-auto" style="background-image: linear-gradient(rgba(52,58,64,0.35), rgba(52,58,64,0.35)), url('img/screen-1.jpg');background-size: cover;background-position: center center;">
+      <br>
+      <span class="text-light text-center"><h2 class="display-4"></h2><h3 class="display-6">cameras</h3></span>
+      <hr style="border-top: 2px solid white;">
+      <span class="text-light text-center"><h2 class="display-4">IMU</h2><h3 class="display-6">Videos Per Task</h3></span>
+      <br>
+    </div>
+    <div class="col-lg-6 text-justify"> -->
+      <hr>
+      <h2>Our Results</h2>
+      <div>
+        <img src="top_left.png", width = 40%, style="margin-left: -50px">
+        <img src="top_middle.png", width = 40%, style="margin-left: -px">
+      </div>
+
+
+<!--       <div class="col-lg-5">
+          <img src="gravity.png" width = 300px height = 350px style ="margin-left: 100px;">
+        </div>
+      </div>
+    <div class="row justify-content-center" style="margin-top:28px;margin-bottom: 28px;">
+      <div class="col-lg-5">
+        <h2 class="text-center">Dataset Features</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="embed-responsive embed-responsive-16by9 " style="margin-top:5px;">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/X-6hWtOjMHo?modestbranding=1&autohide=1&mute=1&showinfo=0&controls=1&autoplay=1&loop=1&playlist=X-6hWtOjMHo&ref=0&enablejsapi=1" allow="autoplay" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div> -->
+
+    <!-- <div class="col-lg-auto " style="background-image: linear-gradient(rgba(52,58,64,0.35), rgba(52,58,64,0.35)), url('img/screen-2.jpg');background-size: cover;background-position: center center;">
+      <br>
+      <span class="text-light text-center"><h2 class="display-4">3</h2><h1 class="display-6">cameras</h1></span>
+      <hr style="border-top: 2px solid white;">
+      <span class="text-light text-center"><h1 class="display-6">IMU</h1><h1 class="display-6">GPS</h1></span>
+      <br>
+    </div> -->
+  </div>
+
+  <!-- <div class="row equal justify-content-lg-start">
+    <div class="col-lg-auto my-auto " style="background-image: linear-gradient(rgba(52,58,64,0.35), rgba(52,58,64,0.35)), url('img/screen-3.jpg');background-size: cover;background-position: center center;">
+      <br>
+      <span class="text-light text-center"><h2 class="display-4">7</h2><h1 class="display-6">climates</h1></span>
+      <hr style="border-top: 2px solid white;">
+      <span class="text-light text-center"><h2 class="display-4">3</h2><h1 class="display-6">maps</h1></span>
+      <br>
+    </div>
+    <div class="col-lg-6 text-justify">
+      <hr>
+      <h2>Train for robustness</h2>
+      <p>
+        With its 4 weather setups, 3 different seasons, 3 environment maps, and high quality visuals, our dataset should give a good insight
+        on potential performances which can be expected from algorithms in real-world scenarios.
+      </p>
+      <p>
+        Additionally, since each trajectory is recorded several times in different climate conditions, Visual Physics can be used
+        to test the robustness of vision algorithms to visual changes. By the way, we propose a benchmark designed to
+        assess the latter.
+      </p>
+      <p>
+        All considerations taken into account during the design phase of the dataset and the benchmark are explained in
+        detail in <a href="https://orbi.uliege.be/bitstream/2268/234665/3/Fonder2019MidAir.pdf">
+        our paper</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="row equal justify-content-lg-end flex-column-reverse flex-lg-row">
+    <div class="col-lg-6 text-justify">
+      <hr>
+      <h2>Ease of use</h2>
+      <p>
+        We wanted to reduce the time required to set up our dataset as much as possible. We did this by choosing a straightforward
+        <a href="dataorg.html">Data organization</a>. We also provide simple example
+        scripts ( <a href="https://github.com/montefiore-ai/midair-dataset/" onclick="ga('send', 'event', 'Link', 'Click', 'Goto Github');"><i class="fa fa-external-link" aria-hidden="false"></i>GitHub</a>) to show how to use it.
+      </p>
+      <p>
+        Additionally, we have an automated download procedure that lets you finely select what you want to download.
+        Our <a href="download.html">Download page</a> also contains a small preview
+        for each trajectory so that you can get an idea of its content without having to download it completely.
+      </p>
+    </div>
+    <div class="col-lg-auto my-auto" style="background-image: url('img/screen-5.jpg');background-size: cover;background-position: center center;">
+      <span class="text-light text-center" style="opacity: 0.0;"><h2 class="display-4">&emsp;</h2><h1 class="display-6">&emsp;&emsp;&emsp;&nbsp;&nbsp;</h1></span>
+      <br>
+      <span class="text-light text-center" style="opacity: 0.0;"><h1 class="display-6">&emsp;</h1><h1 class="display-6">&emsp;&emsp;&emsp;&nbsp;&nbsp;</h1></span>
+    </div>
+
+  </div>
+
+
+ -->
+  <!-- <div class="row justify-content-center" style="margin-top:28px;">
+    <div class="col-lg-5">
+      <h2 class="text-center">Terms of Use</h2>
+    </div>
+  </div> -->
+  <div class="row" style="margin-top:28px;">
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-header">
+          Acknowledgements
+        </div>
+        <div class="card-body">
+          <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License"
+                                                                                            style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
+
+          <p>All datasets and benchmarks on this website are copyrighted and published under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+          Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>This means that you must attribute the work in the manner specified by the authors, you may not use this work for commercial purposes and if you alter, transform, or build upon this work, you may distribute the resulting work only under the same license.</p>
+          <p>If you need a commercial license, please contact us.</p>
+        </div>
+
+        </div>
+      <div class="card">
+        <div class="card-header">
+          Citation
+        </div>
+        <div class="card-body">
+          When using this dataset in your research, we would appreciate that you cite our <a href="https://arxiv.org/pdf/1911.11893.pdf">Arxiv paper for comparison </a>: <br>
+          <br>
+          <code>
+          @article{chari2019visual,
+          <div style="padding-left: 20px">
+              title = {Visual Physics: Discovering Physical Laws from Videos},<br>
+              author = {Chari, Pradyumna and Talegaonkar, Chinmay and Ba, Yunhao and Kadambi, Achuta},<br>
+              journal = {arXiv preprint arXiv:1911.11893},<br>
+              year = {2019} <br>
+          </div>
+          }
+          </code>
+
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.container -->
+
+
+
+    <footer class="page-footer font-small bg-dark text-muted" style="margin-top:25px;">
+
+      <div class="container justify-content-center ">
+
+        <!-- Grid row -->
+        <div class="row" ></div>
+
+        <!--<div class="row justify-content-center  text-md-left" style="margin-top:25px;"><h5 class="text-uppercase font-weight-bold">Related links</h5></div>-->
+        <div class="row justify-content-md-center" style="margin-top:25px;">
+
+
+        <!-- Grid column -->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider hyperlink_footer" >-->
+            <!--<a class="text-muted" href="http://www.montefiore.uliege.be/~mfonder">Michaël Fonder</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider" >-->
+            <!--<a class="text-muted" href="https://www.uliege.be">ULiège</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider" >-->
+            <!--<a class="text-muted" href="http://www.montefiore.uliege.be/">Montefiore Institute</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mt-md-0 mt-3 column vertical-divider" >-->
+            <!--<a class="text-muted" href="http://www.telecom.ulg.ac.be/index.html">TELIM Laboratory</a>-->
+          <!--</div>-->
+          <div class="col-md-3 text-center" >
+            <h5>Related links</h5><br>
+            <p><a class="text-muted" href="https://be.linkedin.com/in/m-fonder">Michaël Fonder</a></p>
+            <p><a class="text-muted" href="http://www.montefiore.uliege.be/">Montefiore Institute</a></p>
+            <p><a class="text-muted" href="https://www.uliege.be">ULiège</a></p>
+          </div>
+          <div class="col-md-1" ></div>
+          <div class="col-md-4" >
+            <h5 class="text-center">Acknowledgements</h5><br>
+            <p class="text-justify">
+              We would like to thank Nvidia for supporting our research with the donation of a Titan Xp GPU through the NVIDIA GPU Grant Program.
+            </p>
+          </div>
+          <div class="col-md-1" ></div>
+          <div class="col-md-3" >
+            <h5>Contact</h5><br>
+            <p><span id="emaildomain"><i class="fa fa-envelope"></i> <span id="emailname"><span id="cache">m.inutile@bloque.be</span></span></span><br>
+              <i class="fa fa-map-marker"></i> Institut Montefiore, B28<br>
+              &emsp;Allée de la découverte 10,<br>
+              &emsp;4000 Liège<br>
+            </p>
+          </div>
+
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+      </div>
+      <div class="footer-copyright text-center py-3 nav-link">© 2019 Copyright: Visual Physics. All Rights Reserved
+      </div>
+
+    </footer>
+    <!-- Footer -->
+
+
+  </body>
+</html>
